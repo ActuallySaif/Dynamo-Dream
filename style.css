@@ -1,0 +1,82 @@
+:root{
+    --titleFont: 'major';
+    --textFont: 'pixel';
+    --mainBg: black;
+    --textWhite: white;
+    --textOrange: #FD7E00;
+    --logoSize: 24px;
+    --titleSize:96px;
+    --textSize: 32px;
+    --btnBorder: #FD7E00 3px solid;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'pixel';
+    src: url(Fonts/pixel\ font-7.ttf);
+}
+
+@font-face {
+    font-family: 'major';
+    src: url(Fonts/MajorMinus.ttf);
+}
+
+body{
+    font-family: var(--textFont);
+    background: var(--mainBg);
+}
+
+header{
+    padding: 15px 50px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.logo{
+    font-family: var(--titleFont);
+    color: var(--textWhite);
+    font-size: var(--logoSize);
+}
+
+nav{
+    display: flex;
+    gap: 50px;
+}
+
+a{
+    color: var(--textOrange);
+    text-decoration: none;
+    font-size: var(--logoSize);
+}
+
+.hero{
+    width: 100vw;
+    height: 90vh;
+    background-image: url(Images/Hero.png);
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.heroText{
+    font-family: var(--titleFont);
+    font-size: var(--titleSize);
+    color: var(--textWhite);
+}
+
+.heroCTA{
+    padding: 10px 30px;
+    border: var(--btnBorder);
+    margin-top: 20px;
+}
+
+.heroCTA:hover{
+    background-color: var(--textOrange);
+    color: black;
+}
