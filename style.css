@@ -8,6 +8,7 @@
     --titleSize:96px;
     --textSize: 32px;
     --btnBorder: #FD7E00 3px solid;
+    --cursor: .15em solid #FD7E00;
 }
 
 *{
@@ -25,9 +26,50 @@
     src: url(Fonts/MajorMinus.ttf);
 }
 
-body{
+@keyframes revealing1 {
+  from {
+    transform: translateX(100vw);
+    filter: blur(50px);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateX(40vw);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes revealing2 {
+  from {
+    transform: translateX(100vw);
+    filter: blur(50px);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateX(28vw);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+@keyframes revealing3 {
+  from {
+    transform: translateX(100vw);
+    filter: blur(50px);
+    opacity: 0.5;
+  }
+  to {
+    transform: translateX(16vw);
+    filter: blur(0px);
+    opacity: 1;
+  }
+}
+
+html, body{
     font-family: var(--textFont);
     background: var(--mainBg);
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
 header{
@@ -54,7 +96,7 @@ a{
 }
 
 .hero{
-    width: 100vw;
+    width: 100%;
     height: 90vh;
     background-image: url(Images/Hero.png);
     box-sizing: border-box;
@@ -79,4 +121,95 @@ a{
 .heroCTA:hover{
     background-color: var(--textOrange);
     color: black;
+}
+
+#plot{
+    padding: 50px 100px;
+    position: relative;
+}
+
+.secTitle{
+    font-size: var(--titleSize);
+    font-family: var(--titleFont);
+    color: var(--textWhite);
+}
+
+.monitor{
+    width: 712px;
+    height: 768px;
+    background-image: url(Images/Monitor.png);
+    position: relative;
+    padding: 88px 139px 455px 151px;
+    box-sizing: border-box;
+}
+
+.slidingImages{
+    display: flex;
+    height: 953px;
+    top: 0;
+    right: 0;
+    position: absolute;
+}
+
+.angled1{
+    animation: revealing1 800ms ease forwards;
+    animation-play-state: paused;
+}
+
+.angled2{
+    animation: revealing2 800ms 1s ease both;
+    animation-play-state: paused;
+}
+
+.angled3{
+    animation: revealing3 800ms 2s ease both;
+    animation-play-state: paused;
+}
+
+#plot:hover .angled1{
+    animation-play-state: running;
+}
+
+#plot:hover .angled2{
+    animation-play-state: running;
+}
+
+#plot:hover .angled3{
+    animation-play-state: running;
+}
+
+.monitorText{
+    color: var(--textOrange);
+    font-size: var(--logoSize);
+    animation: typing 3.5s steps(47, end);
+    overflow: hidden;
+    height: 216px;
+    animation-play-state: paused;
+}
+
+#plot:hover .monitorText{
+    animation-play-state: running;
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+
+#char{
+    padding: 50px 100px;
+    position: relative;
+}
+
+.charContent{
+    display: flex;
+    justify-content: space-between;
+    margin-top: 60px;
+}
+
+.charImgs{
+    width: 824px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 44px;
 }
